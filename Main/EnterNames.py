@@ -12,28 +12,28 @@ names = []
 def getName(name1):
     name1 = (entry1.get())
     names.append(name1)
-    namesLabel1 = Label(root, text=name1)
+    namesLabel1 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name1)
     namesLabel1.pack()
     canvas.create_window(600, 200, anchor=NW, window=namesLabel1)
     
 def getName2(name2):
     name2 = (entry2.get())
     names.append(name2)
-    namesLabel2 = Label(root, text=name2)
+    namesLabel2 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name2)
     namesLabel2.pack()
     canvas.create_window(600, 300, anchor=NW, window=namesLabel2)
     
 def getName3(name3):
     name3 = (entry3.get())
     names.append(name3)
-    namesLabel3 = Label(root, text=name3)
+    namesLabel3 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name3)
     namesLabel3.pack()
     canvas.create_window(600, 400, anchor=NW, window=namesLabel3)
     
 def getName4(name4):
     name4 = (entry4.get())
     names.append(name4)
-    namesLabel4 = Label(root, text=name4)
+    namesLabel4 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name4)
     namesLabel4.pack()
     canvas.create_window(600, 500, anchor=NW, window=namesLabel4)
 
