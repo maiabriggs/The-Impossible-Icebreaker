@@ -1,0 +1,3 @@
+questions = open("TestQuestions.txt").read().splitlines()
+line = random.choice(questions)
+print(line)
