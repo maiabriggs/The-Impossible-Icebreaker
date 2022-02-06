@@ -58,6 +58,12 @@ canvas.create_window(200, 500, anchor=NW, window=button)
 
 button = Button(root, image=buttonImg, command=nextPage, text=player4, font=("Arial",20), compound=CENTER)
 button.pack()
+
+livesImg = Image.open("images/IMG_0404.jpg")
+livesImg = livesImg.resize((200, 200), Image.ANTIALIAS)
+livesImg = ImageTk.PhotoImage(livesImg)
+
+canvas.create_image(800, 650, anchor=NW, image=livesImg)
 canvas.create_window(600, 500, anchor=NW, window=button)
 
 root.mainloop()
