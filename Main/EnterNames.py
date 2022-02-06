@@ -10,7 +10,7 @@ canvas.pack()
 
 def nextPage():
     root.destroy()
-    import question1
+    import HTBQuestionGenerate
 
 namesFile = open("namesFile.txt", "w")
 names = []
@@ -93,3 +93,4 @@ canvas.create_window(200, 600, anchor=NW, window=submitButton)
 
 root.mainloop()
 
+namesFile.close()

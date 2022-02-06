@@ -2,8 +2,9 @@ from tkinter import *
 from PIL import ImageTk,Image
 import random
 
-def startGame():
-    print("Start game")
+def nextPage():
+    root.destroy()
+    import question1
     
 path_to_qSet1 = "TestQuestions.txt"
 
@@ -35,23 +36,23 @@ message.pack()
 canvas.create_window(200, 100, anchor=NW, window=message)
 
 
-buttonImg = Image.open("/Users/paulinagerchuk/Documents/IMG_0401.jpg")
+buttonImg = Image.open("images/IMG_0401.jpg")
 buttonImg = buttonImg.resize((250, 120), Image.ANTIALIAS)
 buttonImg = ImageTk.PhotoImage(buttonImg)
-button = Button(root, image=buttonImg, command=startGame, text=player1, font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=nextPage, text=player1, font=("Arial",20), compound=CENTER)
 button.pack()
 canvas.create_window(200, 300, anchor=NW, window=button)
 
 
-button = Button(root, image=buttonImg, command=startGame, text=player2, font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=nextPage, text=player2, font=("Arial",20), compound=CENTER)
 button.pack()
 canvas.create_window(600, 300, anchor=NW, window=button)
 
-button = Button(root, image=buttonImg, command=startGame, text=player3, font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=nextPage, text=player3, font=("Arial",20), compound=CENTER)
 button.pack()
 canvas.create_window(200, 500, anchor=NW, window=button)
 
-button = Button(root, image=buttonImg, command=startGame, text=player4, font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=nextPage, text=player4, font=("Arial",20), compound=CENTER)
 button.pack()
 canvas.create_window(600, 500, anchor=NW, window=button)
 
