@@ -19,10 +19,10 @@ def nextPage():
 lives = 3
 ans = random.randint(1,4)
 def checkAnswer(num):
+    global lives
     if num==ans:
-        print("correct lol")
+        print("correct")
     else:
-        global lives
         lives = lives - 1
         livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
         livesCount.pack()
