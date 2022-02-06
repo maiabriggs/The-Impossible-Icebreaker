@@ -1,12 +1,19 @@
 from tkinter import *
 from PIL import ImageTk,Image
 import random
-import importlib
+from importlib import reload
+import QuestionCount as qc
 
 def nextPage():
-    root.destroy()
-    import HTBQuestionGenerate2
-    importlib.reload(HTBQuestionGenerate2)
+    if qc.count == 0:
+        root.destroy()
+        import question1
+    else:
+        print(qc.count)
+        qc.decrease()
+        root.destroy()
+        import HTBQuestionGenerate2
+        reload(HTBQuestionGenerate2) 
 
 path_to_qSet1 = "TestQuestions.txt"
 f = open("namesFile.txt", "r")
