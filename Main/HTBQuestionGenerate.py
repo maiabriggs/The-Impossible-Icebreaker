@@ -4,7 +4,7 @@ import random
 
 def nextPage():
     root.destroy()
-    import HTBQuestionGenerate
+    import HTBQuestionGenerate2
     
 path_to_qSet1 = "TestQuestions.txt"
 

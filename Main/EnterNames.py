@@ -53,13 +53,13 @@ canvas.create_image(180, 50, anchor=NW, image=titleImg)
 
 
 
-name1 = Label(root, text="name of player 1:")
+name1 = Label(root, text="Name of player 1:")
 name1.pack()
-name2 = Label(root, text="name of player 2:")
+name2 = Label(root, text="Name of player 2:")
 name2.pack()
-name3 = Label(root, text="name of player 3:")
+name3 = Label(root, text="Name of player 3:")
 name3.pack()
-name4 = Label(root, text="name of player 4:")
+name4 = Label(root, text="Name of player 4:")
 name4.pack()
 entry1 = Entry(root)
 entry1.bind('<Return>',getName)
