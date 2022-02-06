@@ -1,1 +1,3 @@
 .vs/
+.namesFile.txt
+*.pyc

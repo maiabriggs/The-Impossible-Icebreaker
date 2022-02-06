@@ -3,6 +3,7 @@ from PIL import ImageTk,Image
 import random
 from importlib import reload
 import QuestionCount as qc
+import QuestionGen
 
 def nextPage():
     qc.decrease()
@@ -53,8 +54,8 @@ root.title("Learning how to use tkinter")
 #filename of question set 1 path variable at top
 with open(path_to_qSet1) as file:
     questionsList = file.read().splitlines()
-    
-question = random.choice(questionsList).replace("[name]",random.choice(players))
+
+question = QuestionGen.getQuestion().replace("[name]",random.choice(players))
 
 print(question)
 
@@ -69,6 +70,27 @@ canvas.create_window(200, 100, anchor=NW, window=message)
 buttonImg = Image.open("images/IMG_0401.jpg")
 buttonImg = buttonImg.resize((250, 120), Image.ANTIALIAS)
 buttonImg = ImageTk.PhotoImage(buttonImg)
-#Create4Answers(canvas,players)
-Create2Answers(canvas, ["Yes","No"])
+button = Button(root, image=buttonImg, command=nextPage, text=players[0], font=("Arial",20), compound=CENTER)
+button.pack()
+canvas.create_window(200, 300, anchor=NW, window=button)
+
+
+button = Button(root, image=buttonImg, command=nextPage, text=players[1], font=("Arial",20), compound=CENTER)
+button.pack()
+canvas.create_window(600, 300, anchor=NW, window=button)
+
+button = Button(root, image=buttonImg, command=nextPage, text=players[2], font=("Arial",20), compound=CENTER)
+button.pack()
+canvas.create_window(200, 500, anchor=NW, window=button)
+
+button = Button(root, image=buttonImg, command=nextPage, text=players[3], font=("Arial",20), compound=CENTER)
+button.pack()
+
+livesImg = Image.open("images/IMG_0404.jpg")
+livesImg = livesImg.resize((200, 200), Image.ANTIALIAS)
+livesImg = ImageTk.PhotoImage(livesImg)
+
+canvas.create_image(800, 650, anchor=NW, image=livesImg)
+canvas.create_window(600, 500, anchor=NW, window=button)
+
 root.mainloop()

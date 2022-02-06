@@ -3,6 +3,7 @@ from PIL import ImageTk,Image
 import random
 from importlib import reload
 import QuestionCount as qc
+import QuestionGen
 
 def nextPage():
     if qc.count <= 0:
@@ -59,7 +60,7 @@ root.title("Learning how to use tkinter")
 with open(path_to_qSet1) as file:
     questionsList = file.read().splitlines()
     
-question = random.choice(questionsList).replace("[name]",random.choice(players))
+question = QuestionGen.getQuestion().replace("[name]",random.choice(players))
 
 print(question)
 
@@ -70,12 +71,15 @@ message = Label(root, height=2, font=("Arial", 20), text = question)
 message.pack()
 canvas.create_window(200, 100, anchor=NW, window=message)
 
-
 buttonImg = Image.open("images/IMG_0401.jpg")
 buttonImg = buttonImg.resize((250, 120), Image.ANTIALIAS)
 buttonImg = ImageTk.PhotoImage(buttonImg)
-#Create4Answers(canvas,players)
-Create2Answers(canvas, ["Yes","No"])
+
+livesImg = Image.open("images/IMG_0404.jpg")
+livesImg = livesImg.resize((200, 200), Image.ANTIALIAS)
+livesImg = ImageTk.PhotoImage(livesImg)
+
+canvas.create_image(800, 650, anchor=NW, image=livesImg)
 
 root.mainloop()
 
