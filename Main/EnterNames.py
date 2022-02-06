@@ -8,41 +8,44 @@ canvas = Canvas(root, width = 2000, height = 2000)
 canvas.config(bg="white")
 canvas.pack()
 
+def startGame():
+    print("Start game")
+
 names = []
 def getName(name1):
     name1 = (entry1.get())
     names.append(name1)
-    namesLabel1 = Label(root, text=name1)
+    namesLabel1 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name1)
     namesLabel1.pack()
-    canvas.create_window(600, 200, anchor=NW, window=namesLabel1)
+    canvas.create_window(600, 220, anchor=NW, window=namesLabel1)
     
 def getName2(name2):
     name2 = (entry2.get())
     names.append(name2)
-    namesLabel2 = Label(root, text=name2)
+    namesLabel2 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name2)
     namesLabel2.pack()
-    canvas.create_window(600, 300, anchor=NW, window=namesLabel2)
+    canvas.create_window(600, 320, anchor=NW, window=namesLabel2)
     
 def getName3(name3):
     name3 = (entry3.get())
     names.append(name3)
-    namesLabel3 = Label(root, text=name3)
+    namesLabel3 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name3)
     namesLabel3.pack()
-    canvas.create_window(600, 400, anchor=NW, window=namesLabel3)
+    canvas.create_window(600, 420, anchor=NW, window=namesLabel3)
     
 def getName4(name4):
     name4 = (entry4.get())
     names.append(name4)
-    namesLabel4 = Label(root, text=name4)
+    namesLabel4 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name4)
     namesLabel4.pack()
-    canvas.create_window(600, 500, anchor=NW, window=namesLabel4)
+    canvas.create_window(600, 520, anchor=NW, window=namesLabel4)
 
-def createNames():
-    namesList = (" ".join(names))
-    namesLabel = Label(root, text=str(namesList))
-    namesLabel.pack()
-    canvas.create_window(200, 600, anchor=NW, window=namesLabel)
-    
+titleImg = Image.open("/Users/paulinagerchuk/Documents/IMG_0403.jpg")
+titleImg = titleImg.resize((750, 150), Image.ANTIALIAS)
+titleImg = ImageTk.PhotoImage(titleImg)
+canvas.create_image(180, 50, anchor=NW, image=titleImg)
+
+
 
 name1 = Label(root, text="name of player 1:")
 name1.pack()
@@ -65,17 +68,22 @@ entry4 = Entry(root)
 entry4.bind('<Return>',getName4)
 entry4.pack()
 
-canvas.create_window(200, 200, anchor=NW, window=name1)
-canvas.create_window(400, 200, anchor=NW, window=entry1)
-canvas.create_window(200, 300, anchor=NW, window=name2)
-canvas.create_window(400, 300, anchor=NW, window=entry2)
-canvas.create_window(200, 400, anchor=NW, window=name3)
-canvas.create_window(400, 400, anchor=NW, window=entry3)
-canvas.create_window(200, 500, anchor=NW, window=name4)
-canvas.create_window(400, 500, anchor=NW, window=entry4)
+canvas.create_window(200, 220, anchor=NW, window=name1)
+canvas.create_window(400, 220, anchor=NW, window=entry1)
+canvas.create_window(200, 320, anchor=NW, window=name2)
+canvas.create_window(400, 320, anchor=NW, window=entry2)
+canvas.create_window(200, 420, anchor=NW, window=name3)
+canvas.create_window(400, 420, anchor=NW, window=entry3)
+canvas.create_window(200, 520, anchor=NW, window=name4)
+canvas.create_window(400, 520, anchor=NW, window=entry4)
 
 
-createNames()
-        
+submitButtonImg = Image.open("/Users/paulinagerchuk/Documents/IMG_0402.jpg")
+submitButtonImg = submitButtonImg.resize((250, 120), Image.ANTIALIAS)
+submitButtonImg = ImageTk.PhotoImage(submitButtonImg)
+submitButton = Button(root, image=submitButtonImg, command=startGame)
+submitButton.pack()
+canvas.create_window(200, 600, anchor=NW, window=submitButton)
 
 root.mainloop()
+
