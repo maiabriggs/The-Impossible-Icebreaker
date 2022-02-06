@@ -93,3 +93,4 @@ canvas.create_window(200, 600, anchor=NW, window=submitButton)
 
 root.mainloop()
 
+namesFile.close()
