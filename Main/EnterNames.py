@@ -20,7 +20,7 @@ def getName(name1):
     namesLabel1 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name1)
     namesLabel1.pack()
     canvas.create_window(600, 220, anchor=NW, window=namesLabel1)
-    namesFile.write(name1)
+    namesFile.write(name1+ "\n")
     
 def getName2(name2):
     name2 = (entry2.get())
@@ -28,7 +28,7 @@ def getName2(name2):
     namesLabel2 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name2)
     namesLabel2.pack()
     canvas.create_window(600, 320, anchor=NW, window=namesLabel2)
-    namesFile.write(name2)
+    namesFile.write(name2+ "\n")
     
 def getName3(name3):
     name3 = (entry3.get())
@@ -36,7 +36,7 @@ def getName3(name3):
     namesLabel3 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name3)
     namesLabel3.pack()
     canvas.create_window(600, 420, anchor=NW, window=namesLabel3)
-    namesFile.write(name3)
+    namesFile.write(name3+ "\n")
     
 def getName4(name4):
     name4 = (entry4.get())
@@ -44,7 +44,7 @@ def getName4(name4):
     namesLabel4 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name4)
     namesLabel4.pack()
     canvas.create_window(600, 520, anchor=NW, window=namesLabel4)
-    namesFile.write(name4)
+    namesFile.write(name4+ "\n")
 
 titleImg = Image.open("images/IMG_0403.jpg")
 titleImg = titleImg.resize((750, 150), Image.ANTIALIAS)
