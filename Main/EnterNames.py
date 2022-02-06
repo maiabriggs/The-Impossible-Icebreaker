@@ -8,9 +8,11 @@ canvas = Canvas(root, width = 2000, height = 2000)
 canvas.config(bg="white")
 canvas.pack()
 
-def startGame():
-    print("Start game")
+def nextPage():
+    root.destroy()
+    import HTBQuestionGenerate
 
+namesFile = open("namesFile.txt", "w")
 names = []
 def getName(name1):
     name1 = (entry1.get())
@@ -18,6 +20,7 @@ def getName(name1):
     namesLabel1 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name1)
     namesLabel1.pack()
     canvas.create_window(600, 220, anchor=NW, window=namesLabel1)
+    namesFile.write(name1+ "\n")
     
 def getName2(name2):
     name2 = (entry2.get())
@@ -25,6 +28,7 @@ def getName2(name2):
     namesLabel2 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name2)
     namesLabel2.pack()
     canvas.create_window(600, 320, anchor=NW, window=namesLabel2)
+    namesFile.write(name2+ "\n")
     
 def getName3(name3):
     name3 = (entry3.get())
@@ -32,6 +36,7 @@ def getName3(name3):
     namesLabel3 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name3)
     namesLabel3.pack()
     canvas.create_window(600, 420, anchor=NW, window=namesLabel3)
+    namesFile.write(name3+ "\n")
     
 def getName4(name4):
     name4 = (entry4.get())
@@ -39,8 +44,9 @@ def getName4(name4):
     namesLabel4 = Label(root, height=2, font=("Arial", 20), fg="white", bg="green", text=name4)
     namesLabel4.pack()
     canvas.create_window(600, 520, anchor=NW, window=namesLabel4)
+    namesFile.write(name4+ "\n")
 
-titleImg = Image.open("/Users/paulinagerchuk/Documents/IMG_0403.jpg")
+titleImg = Image.open("images/IMG_0403.jpg")
 titleImg = titleImg.resize((750, 150), Image.ANTIALIAS)
 titleImg = ImageTk.PhotoImage(titleImg)
 canvas.create_image(180, 50, anchor=NW, image=titleImg)
@@ -78,12 +84,13 @@ canvas.create_window(200, 520, anchor=NW, window=name4)
 canvas.create_window(400, 520, anchor=NW, window=entry4)
 
 
-submitButtonImg = Image.open("/Users/paulinagerchuk/Documents/IMG_0402.jpg")
+submitButtonImg = Image.open("images/IMG_0402.jpg")
 submitButtonImg = submitButtonImg.resize((250, 120), Image.ANTIALIAS)
 submitButtonImg = ImageTk.PhotoImage(submitButtonImg)
-submitButton = Button(root, image=submitButtonImg, command=startGame)
+submitButton = Button(root, image=submitButtonImg, command=nextPage)
 submitButton.pack()
 canvas.create_window(200, 600, anchor=NW, window=submitButton)
 
 root.mainloop()
 
+namesFile.close()
