@@ -13,10 +13,40 @@ def nextPage():
         qc.decrease()
         root.destroy()
         import HTBQuestionGenerate2
-        reload(HTBQuestionGenerate2) 
+        reload(HTBQuestionGenerate2)
+
+def Create4Answers(canvas, answersArr):
+    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[0], font=("Arial",20), compound=CENTER)
+    button.pack()
+    canvas.create_window(200, 300, anchor=NW, window=button)
+
+    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[1], font=("Arial",20), compound=CENTER)
+    button.pack()
+    canvas.create_window(600, 300, anchor=NW, window=button)
+
+    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[2], font=("Arial",20), compound=CENTER)
+    button.pack()
+    canvas.create_window(200, 500, anchor=NW, window=button)
+
+    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[3], font=("Arial",20), compound=CENTER)
+    button.pack()
+    canvas.create_window(600, 500, anchor=NW, window=button)
+
+def Create2Answers(canvas, answersArr):
+    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[0], font=("Arial",20), compound=CENTER)
+    button.pack()
+    canvas.create_window(200, 300, anchor=NW, window=button)
+
+    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[1], font=("Arial",20), compound=CENTER)
+    button.pack()
+    canvas.create_window(600, 300, anchor=NW, window=button)
 
 path_to_qSet1 = "TestQuestions.txt"
-f = open("namesFile.txt", "r")
+namesFile = open("namesFile.txt", "r")
+players = []
+for i in range(4):
+    players.append(namesFile.readline())
+
 
 root = Tk()
 canvas = Canvas(root, width = 2000, height = 2000)
@@ -29,16 +59,12 @@ root.title("Learning how to use tkinter")
 with open(path_to_qSet1) as file:
     questionsList = file.read().splitlines()
     
-question = random.choice(questionsList)
+question = random.choice(questionsList).replace("[name]",random.choice(players))
 
 print(question)
 
 #making name buttons
 #uploading names from file into variables
-namesFile = f
-players = []
-for i in range(4):
-    players.append(namesFile.readline())
 
 message = Label(root, height=2, font=("Arial", 20), text = question)
 message.pack()
@@ -48,21 +74,8 @@ canvas.create_window(200, 100, anchor=NW, window=message)
 buttonImg = Image.open("images/IMG_0401.jpg")
 buttonImg = buttonImg.resize((250, 120), Image.ANTIALIAS)
 buttonImg = ImageTk.PhotoImage(buttonImg)
-button = Button(root, image=buttonImg, command=nextPage, text=players[0], font=("Arial",20), compound=CENTER)
-button.pack()
-canvas.create_window(200, 300, anchor=NW, window=button)
-
-
-button = Button(root, image=buttonImg, command=nextPage, text=players[1], font=("Arial",20), compound=CENTER)
-button.pack()
-canvas.create_window(600, 300, anchor=NW, window=button)
-
-button = Button(root, image=buttonImg, command=nextPage, text=players[2], font=("Arial",20), compound=CENTER)
-button.pack()
-canvas.create_window(200, 500, anchor=NW, window=button)
-
-button = Button(root, image=buttonImg, command=nextPage, text=players[3], font=("Arial",20), compound=CENTER)
-button.pack()
-canvas.create_window(600, 500, anchor=NW, window=button)
+#Create4Answers(canvas,players)
+Create2Answers(canvas, ["Yes","No"])
 
 root.mainloop()
+
