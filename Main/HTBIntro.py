@@ -3,7 +3,7 @@ from PIL import ImageTk,Image
 
 def nextPage():
     root.destroy()
-    import question1
+    import EnterNames
 
 #setting up canvas with white background
 root = Tk()
@@ -12,12 +12,12 @@ canvas.config(bg="white")
 canvas.pack()  
 
 #open title image as Image, resize, then save as PhotoImage so its displayed in TKinter
-title = Image.open("/home/maia/Documents/The-Impossible-Icebreaker/images/imposIcebreaker.JPG")
+title = Image.open("images/imposIcebreaker.JPG")
 title = title.resize((650, 350), Image.ANTIALIAS)
 title = ImageTk.PhotoImage(title)
 
 #open, resize, and save buttonImage as a PhotoImage
-beginButtonImg = Image.open("/home/maia/Documents/The-Impossible-Icebreaker/images/IMG_0399.jpg")
+beginButtonImg = Image.open("images/IMG_0399.jpg")
 beginButtonImg = beginButtonImg.resize((300, 150), Image.ANTIALIAS)
 beginButtonImg = ImageTk.PhotoImage(beginButtonImg)
 #make a button with the beginButtonImg image inside it

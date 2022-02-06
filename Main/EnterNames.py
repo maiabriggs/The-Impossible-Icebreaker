@@ -8,8 +8,9 @@ canvas = Canvas(root, width = 2000, height = 2000)
 canvas.config(bg="white")
 canvas.pack()
 
-def startGame():
-    print("Start game")
+def nextPage():
+    root.destroy()
+    import question1
 
 names = []
 def getName(name1):
@@ -40,7 +41,7 @@ def getName4(name4):
     namesLabel4.pack()
     canvas.create_window(600, 520, anchor=NW, window=namesLabel4)
 
-titleImg = Image.open("/Users/paulinagerchuk/Documents/IMG_0403.jpg")
+titleImg = Image.open("images/IMG_0403.jpg")
 titleImg = titleImg.resize((750, 150), Image.ANTIALIAS)
 titleImg = ImageTk.PhotoImage(titleImg)
 canvas.create_image(180, 50, anchor=NW, image=titleImg)
@@ -78,10 +79,10 @@ canvas.create_window(200, 520, anchor=NW, window=name4)
 canvas.create_window(400, 520, anchor=NW, window=entry4)
 
 
-submitButtonImg = Image.open("/Users/paulinagerchuk/Documents/IMG_0402.jpg")
+submitButtonImg = Image.open("images/IMG_0402.jpg")
 submitButtonImg = submitButtonImg.resize((250, 120), Image.ANTIALIAS)
 submitButtonImg = ImageTk.PhotoImage(submitButtonImg)
-submitButton = Button(root, image=submitButtonImg, command=startGame)
+submitButton = Button(root, image=submitButtonImg, command=nextPage)
 submitButton.pack()
 canvas.create_window(200, 600, anchor=NW, window=submitButton)
 
