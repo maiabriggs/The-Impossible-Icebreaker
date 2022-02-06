@@ -80,7 +80,7 @@ button = Button(root, image=buttonImg, command=lambda:checkAnswer(4), text=playe
 button.pack()
 canvas.create_window(600, 500, anchor=NW, window=button)
 
-livesImg = Image.open("IMG_0404.jpg")
+livesImg = Image.open("images/IMG_0404.jpg")
 livesImg = livesImg.resize((200, 200), Image.ANTIALIAS)
 livesImg = ImageTk.PhotoImage(livesImg)
 livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
