@@ -17,38 +17,52 @@ def nextPage():
         reload(HTBQuestionGenerate2)
 
 def Create4Answers(canvas, answersArr):
-    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[0], font=("Arial",20), compound=CENTER)
+    button = Button(root, image=buttonImg, command=lambda:checkAnswer4(1), text=answersArr[0], font=("Arial",20), compound=CENTER)
     button.pack()
     canvas.create_window(200, 300, anchor=NW, window=button)
 
-    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[1], font=("Arial",20), compound=CENTER)
+    button = Button(root, image=buttonImg, command=lambda:checkAnswer4(2), text=answersArr[1], font=("Arial",20), compound=CENTER)
     button.pack()
     canvas.create_window(600, 300, anchor=NW, window=button)
 
-    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[2], font=("Arial",20), compound=CENTER)
+    button = Button(root, image=buttonImg, command=lambda:checkAnswer4(3), text=answersArr[2], font=("Arial",20), compound=CENTER)
     button.pack()
     canvas.create_window(200, 500, anchor=NW, window=button)
 
-    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[3], font=("Arial",20), compound=CENTER)
+    button = Button(root, image=buttonImg, command=lambda:checkAnswer4(4), text=answersArr[3], font=("Arial",20), compound=CENTER)
     button.pack()
     canvas.create_window(600, 500, anchor=NW, window=button)
 
 def Create2Answers(canvas, answersArr):
-    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[0], font=("Arial",20), compound=CENTER)
+    button = Button(root, image=buttonImg, command=lambda:checkAnswer2(1), text=answersArr[0], font=("Arial",20), compound=CENTER)
     button.pack()
     canvas.create_window(200, 300, anchor=NW, window=button)
 
-    button = Button(root, image=buttonImg, command=nextPage, text=answersArr[1], font=("Arial",20), compound=CENTER)
+    button = Button(root, image=buttonImg, command=lambda:checkAnswer2(2), text=answersArr[1], font=("Arial",20), compound=CENTER)
     button.pack()
     canvas.create_window(600, 300, anchor=NW, window=button)
         
 lives = 3
-ans = random.randint(1,4)
-def checkAnswer(num):
+def checkAnswer4(num):
+    ans = random.randint(1,4)
     global lives
     global ans
     if num==ans:
-        print("correct lol")
+        print("correct")
+    else:
+        lives = lives - 1
+        livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
+        livesCount.pack()
+        canvas.create_window(800, 600, anchor=NW, window=livesCount)
+        print("nope")
+    nextPage()
+    
+def checkAnswer2(num):
+    ans = random.randint(1,2)
+    global lives
+    global ans
+    if num==ans:
+        print("correct")
     else:
         lives = lives - 1
         livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
