@@ -41,6 +41,21 @@ def Create2Answers(canvas, answersArr):
     button = Button(root, image=buttonImg, command=nextPage, text=answersArr[1], font=("Arial",20), compound=CENTER)
     button.pack()
     canvas.create_window(600, 300, anchor=NW, window=button)
+        
+lives = 3
+ans = random.randint(1,4)
+def checkAnswer(num):
+    global lives
+    global ans
+    if num==ans:
+        print("correct lol")
+    else:
+        lives = lives - 1
+        livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
+        livesCount.pack()
+        canvas.create_window(800, 600, anchor=NW, window=livesCount)
+        print("nope")
+    nextPage()
 
 path_to_qSet1 = "TestQuestions.txt"
 namesFile = open("namesFile.txt", "r")
@@ -78,8 +93,9 @@ buttonImg = ImageTk.PhotoImage(buttonImg)
 livesImg = Image.open("images/IMG_0404.jpg")
 livesImg = livesImg.resize((200, 200), Image.ANTIALIAS)
 livesImg = ImageTk.PhotoImage(livesImg)
-
-canvas.create_image(800, 650, anchor=NW, image=livesImg)
+livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
+livesCount.pack()
+canvas.create_window(800, 600, anchor=NW, window=livesCount)
 
 root.mainloop()
 
