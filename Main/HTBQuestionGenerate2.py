@@ -5,15 +5,10 @@ from importlib import reload
 import QuestionCount as qc
 
 def nextPage():
-    if qc.count == 0:
-        root.destroy()
-        import question1
-    else:
-        print(qc.count)
-        qc.decrease()
-        root.destroy()
-        import HTBQuestionGenerate
-        reload(HTBQuestionGenerate)
+    qc.decrease()
+    root.destroy()
+    import HTBQuestionGenerate
+    reload(HTBQuestionGenerate)
     
 path_to_qSet1 = "TestQuestions.txt"
 

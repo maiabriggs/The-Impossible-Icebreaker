@@ -5,9 +5,9 @@ from importlib import reload
 import QuestionCount as qc
 
 def nextPage():
-    if qc.count == 0:
+    if qc.count <= 0:
         root.destroy()
-        import question1
+        import HTBCongrats
     else:
         print(qc.count)
         qc.decrease()
