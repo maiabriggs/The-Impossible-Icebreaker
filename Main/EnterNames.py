@@ -9,6 +9,7 @@ canvas.config(bg="white")
 canvas.pack()
 
 def nextPage():
+    namesFile.close()
     root.destroy()
     import HTBQuestionGenerate
 
@@ -22,6 +23,7 @@ def getName(name1):
     canvas.create_window(600, 220, anchor=NW, window=namesLabel1)
     namesFile.write(name1+ "\n")
     
+    
 def getName2(name2):
     name2 = (entry2.get())
     names.append(name2)
@@ -29,6 +31,7 @@ def getName2(name2):
     namesLabel2.pack()
     canvas.create_window(600, 320, anchor=NW, window=namesLabel2)
     namesFile.write(name2+ "\n")
+   
     
 def getName3(name3):
     name3 = (entry3.get())
@@ -38,6 +41,7 @@ def getName3(name3):
     canvas.create_window(600, 420, anchor=NW, window=namesLabel3)
     namesFile.write(name3+ "\n")
     
+    
 def getName4(name4):
     name4 = (entry4.get())
     names.append(name4)
@@ -45,6 +49,9 @@ def getName4(name4):
     namesLabel4.pack()
     canvas.create_window(600, 520, anchor=NW, window=namesLabel4)
     namesFile.write(name4+ "\n")
+    
+
+
 
 titleImg = Image.open("images/IMG_0403.jpg")
 titleImg = titleImg.resize((750, 150), Image.ANTIALIAS)
@@ -93,4 +100,4 @@ canvas.create_window(200, 600, anchor=NW, window=submitButton)
 
 root.mainloop()
 
-namesFile.close()
+

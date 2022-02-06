@@ -1,15 +1,14 @@
 from tkinter import *
 from PIL import ImageTk,Image
 import random
-import importlib
+from importlib import reload
 
-def nextPage():
+def nextPage(): 
     root.destroy()
-    import HTBQuestionGenerate2
-    importlib.reload(HTBQuestionGenerate2)
-
+    import HTBQuestionGenerate
+    reload(HTBQuestionGenerate)
+    
 path_to_qSet1 = "TestQuestions.txt"
-f = open("namesFile.txt", "r")
 
 root = Tk()
 canvas = Canvas(root, width = 2000, height = 2000)
@@ -28,7 +27,7 @@ print(question)
 
 #making name buttons
 #uploading names from file into variables
-namesFile = f
+namesFile = open("namesFile.txt","r")
 player1 = namesFile.readline()
 player2 = namesFile.readline()
 player3 = namesFile.readline()
