@@ -14,6 +14,21 @@ def nextPage():
         root.destroy()
         import HTBQuestionGenerate2
         reload(HTBQuestionGenerate2) 
+        
+lives = 3
+ans = random.randint(1,4)
+def checkAnswer(num):
+    global lives
+    global ans
+    if num==ans:
+        print("correct lol")
+    else:
+        lives = lives - 1
+        livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
+        livesCount.pack()
+        canvas.create_window(800, 600, anchor=NW, window=livesCount)
+        print("nope")
+    nextPage()
 
 path_to_qSet1 = "TestQuestions.txt"
 f = open("namesFile.txt", "r")
@@ -48,27 +63,28 @@ canvas.create_window(200, 100, anchor=NW, window=message)
 buttonImg = Image.open("images/IMG_0401.jpg")
 buttonImg = buttonImg.resize((250, 120), Image.ANTIALIAS)
 buttonImg = ImageTk.PhotoImage(buttonImg)
-button = Button(root, image=buttonImg, command=nextPage, text=players[0], font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=lambda:checkAnswer(1), text=players[0], font=("Arial",20), compound=CENTER)
 button.pack()
 canvas.create_window(200, 300, anchor=NW, window=button)
 
 
-button = Button(root, image=buttonImg, command=nextPage, text=players[1], font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=lambda:checkAnswer(2), text=players[1], font=("Arial",20), compound=CENTER)
 button.pack()
 canvas.create_window(600, 300, anchor=NW, window=button)
 
-button = Button(root, image=buttonImg, command=nextPage, text=players[2], font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=lambda:checkAnswer(3), text=players[2], font=("Arial",20), compound=CENTER)
 button.pack()
 canvas.create_window(200, 500, anchor=NW, window=button)
 
-button = Button(root, image=buttonImg, command=nextPage, text=players[3], font=("Arial",20), compound=CENTER)
+button = Button(root, image=buttonImg, command=lambda:checkAnswer(4), text=players[3], font=("Arial",20), compound=CENTER)
 button.pack()
+canvas.create_window(600, 500, anchor=NW, window=button)
 
-livesImg = Image.open("images/IMG_0404.jpg")
+livesImg = Image.open("IMG_0404.jpg")
 livesImg = livesImg.resize((200, 200), Image.ANTIALIAS)
 livesImg = ImageTk.PhotoImage(livesImg)
-
-canvas.create_image(800, 650, anchor=NW, image=livesImg)
-canvas.create_window(600, 500, anchor=NW, window=button)
+livesCount = Label(root, image=livesImg, text=str(lives), font=("Arial",20), compound=CENTER)
+livesCount.pack()
+canvas.create_window(800, 600, anchor=NW, window=livesCount)
 
 root.mainloop()
